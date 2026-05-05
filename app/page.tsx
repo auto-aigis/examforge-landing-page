@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useState } from "react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -224,7 +225,7 @@ export default function Home() {
             </div>
             <span className="text-xl font-bold text-gray-900">ExamForge</span>
           </div>
-          <div className="hidden items-center gap-8 md:flex">
+          <div className="hidden items-center gap-6 md:flex">
             <a href="#features" className="text-sm text-gray-600 hover:text-indigo-600 transition-colors">
               Features
             </a>
@@ -234,16 +235,22 @@ export default function Home() {
             <a href="#pricing" className="text-sm text-gray-600 hover:text-indigo-600 transition-colors">
               Pricing
             </a>
-            <Button variant="outline" size="sm" className="border-indigo-200 text-indigo-600 hover:bg-indigo-50">
-              Log In
-            </Button>
-            <Button size="sm" className="bg-indigo-600 hover:bg-indigo-700 text-white">
-              Start Free Trial
-            </Button>
+            <Link href="/apps/examforge/login">
+              <Button variant="outline" size="sm" className="border-indigo-200 text-indigo-600 hover:bg-indigo-50">
+                Log In
+              </Button>
+            </Link>
+            <Link href="/apps/examforge/register">
+              <Button size="sm" className="bg-indigo-600 hover:bg-indigo-700 text-white">
+                Start Free Trial
+              </Button>
+            </Link>
           </div>
-          <Button size="sm" className="bg-indigo-600 hover:bg-indigo-700 text-white md:hidden">
-            Get Started
-          </Button>
+          <Link href="/apps/examforge/register" className="md:hidden">
+            <Button size="sm" className="bg-indigo-600 hover:bg-indigo-700 text-white">
+              Get Started
+            </Button>
+          </Link>
         </div>
       </nav>
 
@@ -258,7 +265,7 @@ export default function Home() {
             <h1 className="mb-6 text-4xl font-bold leading-tight tracking-tight text-gray-900 sm:text-5xl lg:text-6xl">
               Generate{" "}
               <span className="bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent">
-                JEE, NEET & State Board
+                JEE, NEET &amp; State Board
               </span>{" "}
               Question Papers in Minutes
             </h1>
@@ -267,16 +274,20 @@ export default function Home() {
               Stop copy-pasting from old papers. Generate curriculum-mapped exams in under 3 minutes — with answer keys.
             </p>
             <div className="flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
-              <Button size="lg" className="bg-indigo-600 hover:bg-indigo-700 text-white px-8 py-6 text-base font-semibold rounded-xl shadow-lg shadow-indigo-200">
-                Start Free Trial — No Credit Card
-                <ArrowRight className="ml-2 h-5 w-5" />
-              </Button>
-              <Button size="lg" variant="outline" className="border-gray-300 text-gray-700 hover:bg-gray-50 px-8 py-6 text-base rounded-xl">
-                Watch 2-Min Demo
-              </Button>
+              <Link href="/apps/examforge/register">
+                <Button size="lg" className="bg-indigo-600 hover:bg-indigo-700 text-white px-8 py-6 text-base font-semibold rounded-xl shadow-lg shadow-indigo-200">
+                  Try ExamForge Free
+                  <ArrowRight className="ml-2 h-5 w-5" />
+                </Button>
+              </Link>
+              <Link href="/apps/examforge/login">
+                <Button size="lg" variant="outline" className="border-gray-300 text-gray-700 hover:bg-gray-50 px-8 py-6 text-base rounded-xl">
+                  Sign In
+                </Button>
+              </Link>
             </div>
             <p className="mt-4 text-sm text-gray-500">
-              Free 14-day trial • No setup fee • Cancel anytime
+              5 free papers/month • No credit card required • Cancel anytime
             </p>
           </div>
 
@@ -564,11 +575,13 @@ export default function Home() {
                       </li>
                     ))}
                   </ul>
-                  <Button
-                    className={`w-full ${plan.highlighted ? "bg-indigo-600 hover:bg-indigo-700 text-white shadow-lg shadow-indigo-200" : "bg-gray-900 hover:bg-gray-800 text-white"}`}
-                  >
-                    Start Free Trial
-                  </Button>
+                  <Link href="/apps/examforge/register">
+                    <Button
+                      className={`w-full ${plan.highlighted ? "bg-indigo-600 hover:bg-indigo-700 text-white shadow-lg shadow-indigo-200" : "bg-gray-900 hover:bg-gray-800 text-white"}`}
+                    >
+                      Start Free Trial
+                    </Button>
+                  </Link>
                 </CardContent>
               </Card>
             ))}
@@ -628,8 +641,21 @@ export default function Home() {
             </form>
           )}
           <p className="mt-4 text-indigo-300 text-xs">
-            No spam. No credit card. Just your free 14-day trial.
+            No spam. No credit card. Just your free 5-paper monthly trial.
           </p>
+          <div className="mt-6 flex flex-col sm:flex-row gap-3 justify-center">
+            <Link href="/apps/examforge/register">
+              <Button size="lg" className="bg-white text-indigo-600 hover:bg-indigo-50 font-semibold px-8">
+                Sign Up Free
+                <ArrowRight className="ml-2 h-4 w-4" />
+              </Button>
+            </Link>
+            <Link href="/apps/examforge/login">
+              <Button size="lg" variant="outline" className="border-white/30 text-white hover:bg-white/10 px-8">
+                Sign In
+              </Button>
+            </Link>
+          </div>
         </div>
       </section>
 
